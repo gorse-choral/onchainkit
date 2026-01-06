@@ -21,3 +21,17 @@ import './styles/index.css';
 export { Connected } from './connected';
 
 import './styles/index.css';
+import express from 'express';
+
+const app = express();
+
+// Health check endpoint
+app.get('/healthz', (req, res) => {
+  res.status(200).send('Service is up and running');
+});
+
+// Other routes go here
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
